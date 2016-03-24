@@ -1,11 +1,9 @@
 var nb = {
 	exito: function(){
-		alert("Exito")
-    	return true;
+		alert("Exito: Bluetooth esta activado")
 	}, 
 	error: function(){
-		alert("Error");
-		return false;
+		alert("Error: Bluetooth esta desactivado");
 	},
 	btIsEnabled: function(){
 		bluetoothSerial.isEnabled(nb.exito, nb.error);

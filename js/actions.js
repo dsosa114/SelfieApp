@@ -9,9 +9,7 @@ var fn() = {
 
 		fn.ponerFecha();
 		//bluetooth activado?
-		if(!nb.btIsEnabled()){
-			alert("Esta aplicación requiere del bluetooth, actívalo por favor"); //window: pantalla del navegador
-		}
+		nb.btIsEnabled();
 	},
 
 	ponerFecha: function(){
@@ -22,7 +20,7 @@ var fn() = {
 
 		var hoy = dia + "/" + mes + "/" +year;
 
-		$(".date").html(hoy);
+		$(".fecha").html(hoy);
 	}
 
 };
