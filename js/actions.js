@@ -1,4 +1,4 @@
-var fn() = {
+var fn = {
 
 	deviceready: function(){
 		//Esto es necesario para PhoneGap para que pueda ejecutar la aplicación
@@ -12,7 +12,7 @@ var fn() = {
 		$("#camara").tap(fn.tomarFoto);
 		fn.ponerFecha();
 		//bluetooth activado?
-		//nb.btIsEnabled();
+		nb.btIsEnabled();
 	},
 
 	ponerFecha: function(){
@@ -33,6 +33,7 @@ var fn() = {
 };
 
 //EJECUTAR EN PHONEGAP
+//
 $(fn.deviceready);
 
 //EJECUTAR EN NAVEGADOR

@@ -1,6 +1,6 @@
 var nb = {
 	exito: function(){
-		alert("Exito: Bluetooth esta activado")
+		alert("Exito: Bluetooth esta activado");
 	}, 
 	error: function(){
 		alert("Error: Bluetooth esta desactivado");
