@@ -27,7 +27,7 @@
         <gap:plugin name="org.apache.cordova.file-transfer" />
         <gap:plugin name="org.apache.cordova.vibration" />
         <gap:plugin name="org.apache.cordova.network-information"/>
-        <gap:plugin spec="https://github.com/randdusing/cordova-plugin-bluetoothle.git" source="git"/>
+        <gap:plugin spec="https://bitbucket.org/bugnano/cordova-plugin-networking-bluetooth.git" source="git"/>
         
         <allow-navigation href="http://carlos.igitsoft.com" />
     </widget>
