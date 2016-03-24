@@ -7,7 +7,7 @@ var nb = {
 		alert("Error");
 		return false;
 	},
-	abrirCamara: function(){
+	btIsEnabled: function(){
 		bluetoothSerial.isEnabled(nb.exito, nb.error);
 	}
 }

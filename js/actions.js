@@ -6,12 +6,12 @@ var fn() = {
 	},
 
 	init: function(){
-		//Usuario registrado?
+
+		fn.ponerFecha();
+		//bluetooth activado?
 		if(!nb.btIsEnabled()){
 			alert("Esta aplicación requiere del bluetooth, actívalo por favor"); //window: pantalla del navegador
 		}
-		
-		fn.ponerFecha();
 	},
 
 	ponerFecha: function(){
