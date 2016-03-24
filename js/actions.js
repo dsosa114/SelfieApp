@@ -12,7 +12,7 @@ var fn() = {
 		$("#camara").tap(fn.tomarFoto);
 		fn.ponerFecha();
 		//bluetooth activado?
-		nb.btIsEnabled();
+		//nb.btIsEnabled();
 	},
 
 	ponerFecha: function(){
@@ -33,9 +33,9 @@ var fn() = {
 };
 
 //EJECUTAR EN PHONEGAP
-//
-$(fn.deviceready);
+//$(fn.deviceready);
 
 //EJECUTAR EN NAVEGADOR
 //fn.init(); Ejecución por JS
-//$(fn.init); //Ejecución por jQuery
+//
+$(fn.init); //Ejecución por jQuery
