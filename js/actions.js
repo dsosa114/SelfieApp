@@ -7,6 +7,9 @@ var fn() = {
 
 	init: function(){
 
+		alert("Iniciando aplicación");
+
+		$("#camara").tap(fn.tomarFoto);
 		fn.ponerFecha();
 		//bluetooth activado?
 		nb.btIsEnabled();
@@ -21,6 +24,10 @@ var fn() = {
 		var hoy = dia + "/" + mes + "/" +year;
 
 		$(".fecha").html(hoy);
+	},
+
+	tomarFoto: function(){
+		mc.abrirCamara();
 	}
 
 };

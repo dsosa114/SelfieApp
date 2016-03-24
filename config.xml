@@ -10,7 +10,7 @@
 
         <preference name="phonegap-version" value="3.7.0" />
 
-        <name>SelfieLigth</name>
+        <name>SelfieLight</name>
 
         <description>
             Aplicación de prueba para el falsh del celular.
@@ -29,5 +29,4 @@
         <gap:plugin name="org.apache.cordova.network-information"/>
         <gap:plugin spec="https://github.com/don/BluetoothSerial.git" source="git"/>
         
-        <allow-navigation href="http://carlos.igitsoft.com" />
     </widget>
