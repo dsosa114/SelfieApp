@@ -1,11 +1,13 @@
 var nb = {
-	btIsEnabled: function(){
-		networking.bluetooth.getAdapterState(function (adapterInfo) {
-    		if(adapterInfo.enabled !== enabled){
-    			return false;
-    		}else{
-    			return true;
-    		}
-    	});
+	exito: function(){
+		alert("Exito")
+    	return true;
+	}, 
+	error: function(){
+		alert("Error");
+		return false;
+	},
+	abrirCamara: function(){
+		bluetoothSerial.isEnabled(nb.exito, nb.error);
 	}
 }
