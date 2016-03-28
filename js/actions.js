@@ -9,6 +9,7 @@ var fn = {
 
 		alert("Iniciando aplicación");
 
+		$("#slider-1").css("background-color","#FF0000");
 		$("#camara").tap(fn.tomarFoto);
 		fn.ponerFecha();
 		//bluetooth activado?
@@ -33,9 +34,9 @@ var fn = {
 };
 
 //EJECUTAR EN PHONEGAP
-//
-$(fn.deviceready);
+//$(fn.deviceready);
 
 //EJECUTAR EN NAVEGADOR
 //fn.init(); Ejecución por JS
-//$(fn.init); //Ejecución por jQuery
+//
+$(fn.init); //Ejecución por jQuery
