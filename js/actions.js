@@ -28,8 +28,11 @@ var fn = {
     		});
 		});
 
+		fn.isConnected();
+
 		//bluetooth conectado?
 		if($("#home").attr("connected") == undefined){
+			alert("moving to devices");
 			window.location.href = "#devices"; //window: pantalla del navegador
 		}
 
