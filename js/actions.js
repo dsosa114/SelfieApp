@@ -37,7 +37,7 @@ var fn = {
 		}
 
 		$("#foto").tap(fn.tomarFoto);
-		$("#devices div[data-role=footer] a").tap(nb.btIsEnabled);
+		$("#devices div[data-role=header] a").tap(nb.btIsEnabled);
 		fn.ponerFecha();
 		
 	},

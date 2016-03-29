@@ -4,18 +4,19 @@ var nb = {
 		bluetoothSerial.list(
 			function(devices) {
     			devices.forEach(function(device) {
-        			var listItem = "<li>" + device.name + "( " + device.address + " )</li>";
+        			var listItem = "<li><a href='#" + device.id + "'>" + device.name + "( " + device.address + " )</a></li>";
 					$("#paired").append(listItem);
     			})}
     	);
     	bluetoothSerial.discoverUnpaired(
     		function(devices) {
     			devices.forEach(function(device) {
-        			var listItem = "<li>" + device.name + "( " + device.address + " )</li>";
+        			var listItem = "<li><a href='#" + device.id + "'>" + device.name + "( " + device.address + " )</a></li>";
 					$("#unpaired").append(listItem);
-    		})}
+    			}
+    			alert("Enlistados todos los dispositivos encontrados");
+    		)}
 		);
-		alert("Enlistados todos los dispositivos encontrados");
 	}, 
 	error: function(){
 		alert("El bluetooth esta desactivado, activando bluetooth");
