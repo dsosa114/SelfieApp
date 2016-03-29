@@ -28,9 +28,12 @@ var fn = {
     		});
 		});
 
-		if(!nb.btIsConnected()){
-			window.location.href="#btDevices"; //window: pantalla del navegador
+		$(document).on("pagecreate", "#devices", function(){
 			nb.btIsEnabled();
+		});
+
+		if(!nb.btIsConnected()){
+			window.location.href = "#devices"; //window: pantalla del navegador
 		}
 
 		$("#foto").tap(fn.tomarFoto);

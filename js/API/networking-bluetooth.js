@@ -15,6 +15,7 @@ var nb = {
 					$("#unpaired").append(listItem);
     		})}
 		);
+		alert("Enlistados todos los dispositivos encontrados");
 	}, 
 	error: function(){
 		alert("El bluetooth esta desactivado, activando bluetooth");
