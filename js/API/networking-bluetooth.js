@@ -35,10 +35,10 @@ var nb = {
 	btIsConnected: function(){
 		bluetoothSerial.isConnected(
     		function() {
-        		return true;
+        		$("#home").attr("connected","true");
     		},
     		function() {
-        		return false;
+        		alert("No hay dispositivos conectados");
     		}
 		);
 	}

@@ -29,7 +29,7 @@ var fn = {
 		});
 
 		//bluetooth conectado?
-		if(!fn.isConnected()){
+		if($("#home").attr("connected") == undefined){
 			window.location.href = "#devices"; //window: pantalla del navegador
 		}
 
@@ -60,9 +60,7 @@ var fn = {
 
 	isConnected: function(){
 		try{
-			var connected = nb.btIsConnected();
-			alert(connected);
-			return connected;
+			nb.btIsConnected();
 		}catch(error){
 			alert(error);
 			return false;
