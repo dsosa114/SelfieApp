@@ -7,13 +7,43 @@ var fn = {
 
 	init: function(){
 
-		alert("Iniciando aplicación");
+		//alert("Iniciando aplicación");
 
-		$("#slider-1").css("background-color","#FF0000");
-		$("#camara").tap(fn.tomarFoto);
+		$(document).on("pagecreate", "#color", function(){
+			fn.highlightColor($("#theSlider1"),"#FF0000");
+			$("#theSlider1").on("change", function(){
+        		fn.highlightColor($(this),"#FF0000");
+    		});
+    		fn.highlightColor($("#theSlider2"),"#00FF00");
+			$("#theSlider2").on("change", function(){
+        		fn.highlightColor($(this),"#00FF00");
+    		});
+    		fn.highlightColor($("#theSlider3"),"#0000FF");
+			$("#theSlider3").on("change", function(){
+        		fn.highlightColor($(this),"#0000FF");
+    		});
+    		$(".ui-slider-input").each(function(index){
+        		var className = $(this).data("glowclass");
+        		$(this).closest(".ui-slider").addClass(className);
+    		});
+		});
+
+		if(!nb.btIsConnected()){
+			window.location.href="#btDevices"; //window: pantalla del navegador
+			nb.btIsEnabled();
+		}
+
+		$("#foto").tap(fn.tomarFoto);
 		fn.ponerFecha();
 		//bluetooth activado?
-		nb.btIsEnabled();
+	},
+
+	highlightColor: function(slider, bgcolor){
+		var color = bgcolor;
+		//var glowClass = "glowRed";
+
+  		slider.closest(".ui-slider").find(".ui-slider-bg").css("background-color", color);
+  		//slider.parents(".glow").removeClass("glowBlue glowYellow glowRed glowGreen").addClass(glowClass);      
 	},
 
 	ponerFecha: function(){
@@ -28,15 +58,16 @@ var fn = {
 	},
 
 	tomarFoto: function(){
+		alert("Abriendo camara");
 		mc.abrirCamara();
 	}
 
 };
 
 //EJECUTAR EN PHONEGAP
-//$(fn.deviceready);
+//
+$(fn.deviceready);
 
 //EJECUTAR EN NAVEGADOR
 //fn.init(); Ejecución por JS
-//
-$(fn.init); //Ejecución por jQuery
+//$(fn.init); //Ejecución por jQuery

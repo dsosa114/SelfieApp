@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
 	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons-1.4.5.min.css">
 	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/slider_styles.css">
 </head>
 <body>
 	<div id="home" data-role="page">
@@ -15,7 +16,7 @@
 		</div>
 		<div class="ui-content">
 			<ul data-role="listview">
-				<li><a href="#">Cámara</a></li>
+				<li><a id="foto" href="#">Cámara</a></li>
 				<li><a href="#color">Color</a></li>
 			</ul>
 		</div>
@@ -29,18 +30,55 @@
 			<h1>Color Selector</h1>
 		</div>
 		<div class="ui-content">
-			<div class="ui-grid-a">
-    			<div class="ui-block-a">
-        			<div class="ui-bar ui-bar-c">
-            			<label for="slider-1">Red:</label>
-            			<input name="slider-1" id="slider-1" data-highlight="true" min="0" max="100" value="50" type="range">
-            			<label for="slider-2">Green:</label>
-            			<input name="slider-2" id="slider-2" data-highlight="true" min="0" max="100" value="50" type="range">
-            			<label for="slider-3">Blue:</label>
-            			<input name="slider-4" id="slider-3" data-highlight="true" min="0" max="100" value="50" type="range">
-        			</div><!-- /ui-bar -->
-    			</div><!-- /ui-block -->
-    		</div><!-- /ui-block -->
+			<ul data-role="listview">
+        		<li>
+        			<div id="slider-1" class="slider-rgb">
+            			<label for="theSlider1">Red:</label>
+            			<input type="range" name="theSlider1" id="theSlider1" min="0" max="100" value="50" data-highlight="true" data-glowclass="glowRed"/>
+        			</div>
+        		</li>
+        		<li>
+        			<div id="slider-2" class="slider-rgb" >
+            			<label for="theSlider2">Green:</label>
+            			<input type="range" name="theSlider2" id="theSlider2" min="0" max="100" value="50" data-highlight="true" data-glowclass="glowGreen"/>
+        			</div>
+        		</li>
+        		<li>
+        			<div id="slider-3" class="slider-rgb" >
+            			<label for="theSlider3">Blue:</label>
+            			<input type="range" name="theSlider3" id="theSlider3" min="0" max="100" value="50" data-highlight="true" data-glowclass="glowBlue"/>
+        			</div> 
+        		</li>
+       		 </ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#" data-rel="back">Cancelar</a></li>
+					<li><a href="#home" class="ui-btn-active">Ok</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="btDevices" data-role="page">
+		<div data-role="header">
+			<h1>Devices</h1>
+		</div>
+		<div class="ui-content">
+			<h3>Paired</h3>
+			<ul id="paired" data-role="listview" data-inset="true">	
+       		</ul>
+       		<h3>Unpaired</h3>
+			<ul id="unpaired" data-role="listview" data-inset="true">	
+       		</ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#" data-rel="back">Cancelar</a></li>
+					<!--<li><a href="#home" class="ui-btn-active">Ok</a></li>-->
+				</ul>
+			</div>
 		</div>
 	</div>
 	<script type="text/javascript" src="phonegap.js"></script>

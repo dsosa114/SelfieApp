@@ -1,0 +1,19 @@
+/* EXAMPLE 1 
+#slider-1 .ui-slider-bg{
+    -webkit-transition:background-color 0.2s;
+    transition: background-color 0.2s;
+}*/
+
+/* EXAMPLE 3 */
+.glowBlue .ui-btn:focus{
+    box-shadow: 0 0 12px #127A97;
+}
+/*.glowYellow .ui-slider .ui-btn:focus {
+    box-shadow: 0 0 12px #F9BA15;
+}*/
+.glowRed .ui-btn:focus{
+    box-shadow: 0 0 12px #BF0C43;
+}
+.glowGreen .ui-btn:focus{
+    box-shadow: 0 0 12px #0FAC00;
+}
