@@ -28,17 +28,15 @@ var fn = {
     		});
 		});
 
-		$(document).on("pagecreate", "#devices", function(){
-			nb.btIsEnabled();
-		});
-
-		if(!nb.btIsConnected()){
+		//bluetooth conectado?
+		if(!fn.isConnected()){
 			window.location.href = "#devices"; //window: pantalla del navegador
 		}
 
 		$("#foto").tap(fn.tomarFoto);
+		$("#devices div[data-role=footer] a").tap(nb.btIsEnabled);
 		fn.ponerFecha();
-		//bluetooth activado?
+		
 	},
 
 	highlightColor: function(slider, bgcolor){
@@ -58,6 +56,17 @@ var fn = {
 		var hoy = dia + "/" + mes + "/" +year;
 
 		$(".fecha").html(hoy);
+	},
+
+	isConnected: function(){
+		try{
+			var connected = nb.btIsConnected();
+			alert(connected);
+			return connected;
+		}catch(error){
+			alert(error);
+			return false;
+		}
 	},
 
 	tomarFoto: function(){
