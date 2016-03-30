@@ -13,6 +13,7 @@ var nb = {
     			devices.forEach(function(device) {
         			var listItem = "<li><a href='#' addr='" + device.address + "'>" + device.name + "</a></li>";
 					$("#unpaired").append(listItem).listview('refresh');
+                    alert(listItem);
     			})
                 alert("Enlistados todos los dispositivos encontrados");
             }
