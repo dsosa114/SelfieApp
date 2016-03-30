@@ -4,14 +4,14 @@ var nb = {
 		bluetoothSerial.list(
 			function(devices) {
     			devices.forEach(function(device) {
-        			var listItem = "<li><a href='#" + device.id + "'>" + device.name + "( " + device.address + " )</a></li>";
+        			var listItem = "<li><a href='#" + device.id + "' addr='" + device.address + "'>" + device.name + "</a></li>";
 					$("#paired").append(listItem).listview('refresh');
     			})}
     	);
     	bluetoothSerial.discoverUnpaired(
     		function(devices) {
     			devices.forEach(function(device) {
-        			var listItem = "<li><a href='#" + device.id + "'>" + device.name + "( " + device.address + " )</a></li>";
+        			var listItem = "<li><a href='#" + device.id + "' addr='" + device.address + "'>" + device.name + "</a></li>";
 					$("#unpaired").append(listItem).listview('refresh');
     			})
                 alert("Enlistados todos los dispositivos encontrados");
@@ -44,5 +44,16 @@ var nb = {
         		alert("No hay dispositivos conectados");
     		}
 		);
-	}
+	},
+
+    btConnect: function(address){
+        bluetoothSerial.connect(address, 
+            function() {
+                alert("Conexión exitosa");
+            },
+            function() {
+                alert("Problemas de conexión");
+            }
+        );
+    }
 }

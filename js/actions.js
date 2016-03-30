@@ -36,6 +36,16 @@ var fn = {
 			window.location.href = "#devices"; //window: pantalla del navegador
 		}
 
+		$("#paired a").tap(function (event) {
+       		var address = $(this).attr("addr");
+       		alert(address);
+    	});
+
+    	$("#unpaired a").tap(function (event) {
+       		var address = $(this).attr("addr");
+       		alert(address);
+    	});
+
 		$("#foto").tap(fn.tomarFoto);
 		$("#devices div[data-role=header] a").tap(nb.btIsEnabled);
 		fn.ponerFecha();
