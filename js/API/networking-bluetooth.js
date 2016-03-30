@@ -13,11 +13,12 @@ var nb = {
     			devices.forEach(function(device) {
         			var listItem = "<li><a href='#" + device.id + "'>" + device.name + "( " + device.address + " )</a></li>";
 					$("#unpaired").append(listItem);
-    			}
-    			alert("Enlistados todos los dispositivos encontrados");
-    		)}
+    			})
+                alert("Enlistados todos los dispositivos encontrados");
+            }
 		);
 	}, 
+
 	error: function(){
 		alert("El bluetooth esta desactivado, activando bluetooth");
 		bluetoothSerial.enable(
@@ -29,6 +30,7 @@ var nb = {
     		}
 		);
 	},
+
 	btIsEnabled: function(){
 		bluetoothSerial.isEnabled(nb.exito, nb.error);
 	},
