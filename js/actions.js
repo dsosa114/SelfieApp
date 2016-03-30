@@ -26,6 +26,7 @@ var fn = {
         		var className = $(this).data("glowclass");
         		$(this).closest(".ui-slider").addClass(className);
     		});
+    				
 		});
 
 		fn.isConnected();
@@ -69,6 +70,7 @@ var fn = {
 		var hoy = dia + "/" + mes + "/" +year;
 
 		$(".fecha").html(hoy);
+
 	},
 
 	isConnected: function(){

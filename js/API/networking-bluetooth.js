@@ -4,14 +4,14 @@ var nb = {
 		bluetoothSerial.list(
 			function(devices) {
     			devices.forEach(function(device) {
-        			var listItem = "<li><a href='#" + device.id + "' addr='" + device.address + "'>" + device.name + "</a></li>";
+        			var listItem = "<li><a href='#' addr='" + device.address + "'>" + device.name + "</a></li>";
 					$("#paired").append(listItem).listview('refresh');
     			})}
     	);
     	bluetoothSerial.discoverUnpaired(
     		function(devices) {
     			devices.forEach(function(device) {
-        			var listItem = "<li><a href='#" + device.id + "' addr='" + device.address + "'>" + device.name + "</a></li>";
+        			var listItem = "<li><a href='#' addr='" + device.address + "'>" + device.name + "</a></li>";
 					$("#unpaired").append(listItem).listview('refresh');
     			})
                 alert("Enlistados todos los dispositivos encontrados");
@@ -23,7 +23,7 @@ var nb = {
 		alert("El bluetooth esta desactivado, activando bluetooth");
 		bluetoothSerial.enable(
     		function() {
-        		alert("Bluetooth esta activado");
+        		nb.exito();
     		},
     		function() {
         		alert("The user did *not* enable Bluetooth");
