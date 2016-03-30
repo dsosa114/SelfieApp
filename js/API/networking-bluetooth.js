@@ -5,14 +5,14 @@ var nb = {
 			function(devices) {
     			devices.forEach(function(device) {
         			var listItem = "<li><a href='#" + device.id + "'>" + device.name + "( " + device.address + " )</a></li>";
-					$("#paired").append(listItem);
+					$("#paired").append(listItem).listview('refresh');
     			})}
     	);
     	bluetoothSerial.discoverUnpaired(
     		function(devices) {
     			devices.forEach(function(device) {
         			var listItem = "<li><a href='#" + device.id + "'>" + device.name + "( " + device.address + " )</a></li>";
-					$("#unpaired").append(listItem);
+					$("#unpaired").append(listItem).listview('refresh');
     			})
                 alert("Enlistados todos los dispositivos encontrados");
             }
