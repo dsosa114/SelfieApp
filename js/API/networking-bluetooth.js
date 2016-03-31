@@ -1,26 +1,7 @@
 var nb = {
 	exito: function(){
-		alert("Exito: Bluetooth esta activado");
-		bluetoothSerial.list(
-			function(devices) {
-    			devices.forEach(function(device) {
-        			var listItem = "<li><a href='#' id='" + device.address + "'>" + device.name + "</a></li>";
-					$("#paired").append(listItem).listview('refresh');
-    			})
-                $("#paired a").on("tap", fn.doThisOnTap);
-            }
-    	);
-    	bluetoothSerial.discoverUnpaired(
-    		function(devices) {
-    			devices.forEach(function(device) {
-        			var listItem = "<li><a href='#' id='" + device.address + "'>" + device.name + "</a></li>";
-					$("#unpaired").append(listItem).listview('refresh');
-                    alert(listItem);
-    			})
-                $("#paired a").on("tap", fn.doThisOnTap);
-                alert("Enlistados todos los dispositivos encontrados");
-            }
-		);
+		//alert("Exito: Bluetooth esta activado");
+		nb.btSearching();
 	}, 
 
 	error: function(){
@@ -34,6 +15,31 @@ var nb = {
     		}
 		);
 	},
+
+    btSearching: function(){
+        $("#popSearch").popup("open");
+        bluetoothSerial.list(
+            function(devices) {
+                devices.forEach(function(device) {
+                    var listItem = "<li><a href='#' id='" + device.address + "'>" + device.name + "</a></li>";
+                    $("#paired").append(listItem).listview('refresh');
+                })
+                $("#paired a").on("tap", fn.doThisOnTap);
+            }
+        );
+        bluetoothSerial.discoverUnpaired(
+            function(devices) {
+                devices.forEach(function(device) {
+                    var listItem = "<li><a href='#' id='" + device.address + "'>" + device.name + "</a></li>";
+                    $("#unpaired").append(listItem).listview('refresh');
+                    alert(listItem);
+                })
+                $("#unpaired a").on("tap", fn.doThisOnTap);
+            }
+        );
+        $("#popSearch").popup("close");
+        alert("Enlistados todos los dispositivos encontrados");
+    },
 
 	btIsEnabled: function(){
 		bluetoothSerial.isEnabled(nb.exito, nb.error);

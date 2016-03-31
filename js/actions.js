@@ -33,19 +33,9 @@ var fn = {
 
 		//bluetooth conectado?
 		if($("#home").attr("connected") == undefined){
-			alert("moving to devices");
+			//alert("moving to devices");
 			window.location.href = "#devices"; //window: pantalla del navegador
 		}
-
-		/*$("#paired a").tap(function (event) {
-       		var address = $(this).attr("addr");
-       		alert(address);
-    	});
-
-    	$("#unpaired a").tap(function (event) {
-       		var address = $(this).attr("addr");
-       		alert(address);
-    	});*/
 
 		$("#foto").tap(fn.tomarFoto);
 		$("#devices div[data-role=header] a").tap(fn.buscarDispositivos);
@@ -96,7 +86,7 @@ var fn = {
 	},
 
 	tomarFoto: function(){
-		alert("Abriendo camara");
+		//alert("Abriendo camara");
 		mc.abrirCamara();
 	}
 
