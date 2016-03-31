@@ -32,13 +32,12 @@ var nb = {
                 devices.forEach(function(device) {
                     var listItem = "<li><a href='#' id='" + device.address + "'>" + device.name + "</a></li>";
                     $("#unpaired").append(listItem).listview('refresh');
-                    alert(listItem);
                 })
                 $("#unpaired a").on("tap", fn.doThisOnTap);
+                $("#popSearch").popup("close");
+                alert("Enlistados todos los dispositivos encontrados");
             }
         );
-        $("#popSearch").popup("close");
-        alert("Enlistados todos los dispositivos encontrados");
     },
 
 	btIsEnabled: function(){
