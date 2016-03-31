@@ -82,6 +82,11 @@ var fn = {
 		}
 	},
 
+	doThisOnTap: function(){
+		var address = $(this).attr("addr");
+       	alert(address);
+	},
+
 	tomarFoto: function(){
 		alert("Abriendo camara");
 		mc.abrirCamara();
