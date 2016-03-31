@@ -82,14 +82,16 @@ var fn = {
 		}
 	},
 
-	doThisOnTap: function(){
+	doThisOnTap: function(event, ui){
 		var address = $(this).attr("id");
        	alert(address);
 	},
 
 	buscarDispositivos: function(){
 		$("#paired").empty();
+		$("#paired").append("<li data-role='list-divider'>Paired</li>").listview('refresh');
 		$("#unpaired").empty();
+		$("#unpaired").append("<li data-role='list-divider'>Unpaired</li>").listview('refresh');
 		nb.btIsEnabled();
 	},
 
