@@ -4,14 +4,14 @@ var nb = {
 		bluetoothSerial.list(
 			function(devices) {
     			devices.forEach(function(device) {
-        			var listItem = "<li><a href='#' addr='" + device.address + "'>" + device.name + "</a></li>";
+        			var listItem = "<li><a href='#' id='" + device.address + "'>" + device.name + "</a></li>";
 					$("#paired").append(listItem).on("tap", fn.doThisOnTap).listview('refresh');
     			})}
     	);
     	bluetoothSerial.discoverUnpaired(
     		function(devices) {
     			devices.forEach(function(device) {
-        			var listItem = "<li><a href='#' addr='" + device.address + "'>" + device.name + "</a></li>";
+        			var listItem = "<li><a href='#' id='" + device.address + "'>" + device.name + "</a></li>";
 					$("#unpaired").append(listItem).on("tap", fn.doThisOnTap).listview('refresh');
                     alert(listItem);
     			})

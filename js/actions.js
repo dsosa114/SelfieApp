@@ -37,7 +37,7 @@ var fn = {
 			window.location.href = "#devices"; //window: pantalla del navegador
 		}
 
-		$("#paired a").tap(function (event) {
+		/*$("#paired a").tap(function (event) {
        		var address = $(this).attr("addr");
        		alert(address);
     	});
@@ -45,10 +45,10 @@ var fn = {
     	$("#unpaired a").tap(function (event) {
        		var address = $(this).attr("addr");
        		alert(address);
-    	});
+    	});*/
 
 		$("#foto").tap(fn.tomarFoto);
-		$("#devices div[data-role=header] a").tap(nb.btIsEnabled);
+		$("#devices div[data-role=header] a").tap(fn.buscarDispositivos);
 		fn.ponerFecha();
 		
 	},
@@ -83,8 +83,14 @@ var fn = {
 	},
 
 	doThisOnTap: function(){
-		var address = $(this).attr("addr");
+		var address = $(this).attr("id");
        	alert(address);
+	},
+
+	buscarDispositivos: function(){
+		$("#paired").empty();
+		$("#unpaired").empty();
+		nb.btIsEnabled();
 	},
 
 	tomarFoto: function(){
