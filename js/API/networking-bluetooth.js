@@ -17,7 +17,6 @@ var nb = {
 	},
 
     btSearching: function(){
-        $("#popSearch").popup("open");
         bluetoothSerial.list(
             function(devices) {
                 devices.forEach(function(device) {
@@ -29,6 +28,7 @@ var nb = {
         );
         bluetoothSerial.discoverUnpaired(
             function(devices) {
+                $("#popSearch").popup("open");
                 devices.forEach(function(device) {
                     var listItem = "<li><a href='#' id='" + device.address + "'>" + device.name + "</a></li>";
                     $("#unpaired").append(listItem).listview('refresh');

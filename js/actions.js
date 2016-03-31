@@ -75,6 +75,7 @@ var fn = {
 	doThisOnTap: function(event, ui){
 		var address = $(this).attr("id");
        	alert(address);
+       	nb.btConnect(address);
 	},
 
 	buscarDispositivos: function(){
