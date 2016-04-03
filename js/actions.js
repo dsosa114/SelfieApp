@@ -55,6 +55,7 @@ var fn = {
 		$("#foto").tap(fn.tomarFoto);
 		$("#devices div[data-role=header] a").tap(fn.buscarDispositivos);
 		$("#disConBtn").tap(fn.conectarDesconectar);
+		$("#home div[data-role=footer] a").on("tap", fn.conectarDispositivo);
 
 		fn.ponerFecha();
 		

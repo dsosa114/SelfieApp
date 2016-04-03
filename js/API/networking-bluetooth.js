@@ -61,6 +61,11 @@ var nb = {
             function() {
                 alert("Conexión exitosa");
                 $("#home").attr("addr", address);
+                $("#home").attr("connected","true");
+                $("#home div[data-role=footer]").empty();
+                $("#home div[data-role=footer]").append('<a data-role="button" class="ui-btn-active" data-icon="delete">Desconectar</a>');
+                $('#home div[data-role=footer] [data-role="button"]').button(); 
+                $("#home div[data-role=footer] a").on("tap", fn.conectarDispositivo);
             },
             function() {
                 alert("Problemas de conexión");
@@ -72,6 +77,11 @@ var nb = {
         bluetoothSerial.disconnect(
             function() {
                 alert("Desconectado exitosamente");
+                $("#home").attr("connected","false");
+                $("#home div[data-role=footer]").empty();
+                $("#home div[data-role=footer]").append('<a data-role="button" class="ui-btn-active" data-icon="check">Conectar</a>');
+                $('#home div[data-role=footer] [data-role="button"]').button(); 
+                $("#home div[data-role=footer] a").on("tap", fn.conectarDispositivo);
             },
             function() {
                 alert("Problemas con el dispositivo");
