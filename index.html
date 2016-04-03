@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/slider_styles.css">
 </head>
 <body>
-	<div id="home" data-role="page">
+	<div id="home" data-role="page" addr="hola" connected="false">
 		<div data-role="header">
 			<h1>Selfie Light</h1>
 			<a href="#" class="fecha"></a>
@@ -21,9 +21,19 @@
 				<li><a href="#color">Color</a></li>
 			</ul>
 		</div>
-		<div data-role="footer" data-position="fixed">
-			<span>Todos los derechos reservados</span> <!--span se comporta similar a div, pero en lugar de encimar enlínea -->
-			<a href="#">Nosotros</a>
+		<div data-role="footer" data-position="fixed" class="ui-bar">
+			<a data-role="button" class="ui-btn-active" data-icon="check">Conectar</a>
+			<div data-role="popup" id="connectDialog">
+				<div data-role="header">
+					<h1>¿Continuar?</h1>
+				</div>
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#" data-rel="back">Cancelar</a></li>
+						<li><a href="#" id="disConBtn" class="ui-btn-active">Ok</a></li>
+					</ul>
+				</div>
+			</div>
 		</div>	
 	</div>
 	<div id="color" data-role="page">

@@ -51,6 +51,7 @@ var nb = {
     		},
     		function() {
         		alert("No hay dispositivos conectados");
+                $("#home").attr("connected","false");
     		}
 		);
 	},
@@ -59,9 +60,21 @@ var nb = {
         bluetoothSerial.connect(address, 
             function() {
                 alert("Conexión exitosa");
+                $("#home").attr("addr", address);
             },
             function() {
                 alert("Problemas de conexión");
+            }
+        );
+    },
+
+    btDisconnect: function(){
+        bluetoothSerial.disconnect(
+            function() {
+                alert("Desconectado exitosamente");
+            },
+            function() {
+                alert("Problemas con el dispositivo");
             }
         );
     }
