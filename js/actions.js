@@ -143,7 +143,7 @@ var fn = {
 	tomarFoto: function(){
 		//alert("Abriendo camara");
 		if($("#home").attr("connected") == "true"){
-			nb.btWrite("Hola mundo...\r\n");
+			nb.btWrite("Color = " + $("#displayBox").css("background-color"));
 		}else if($("#home").attr("connected") == "false"){
 			alert("No hay dispositivos conectados")
 		}
