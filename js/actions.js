@@ -56,9 +56,21 @@ var fn = {
 		$("#devices div[data-role=header] a").tap(fn.buscarDispositivos);
 		$("#disConBtn").tap(fn.conectarDesconectar);
 		$("#home div[data-role=footer] a").on("tap", fn.conectarDispositivo);
+		$(".slider-rgb").on("slidestop", fn.cambioColor);
+		$("#displayBox").on("tap", function(){alert("Color = " + $(this).css("background-color"));});
 
 		fn.ponerFecha();
 		
+	},
+
+	cambioColor: function(event,ui){
+		var red = parseInt($("#theSlider1").val()).toString(16);
+		var green = parseInt($("#theSlider2").val()).toString(16);
+		var blue = parseInt($("#theSlider3").val()).toString(16);
+
+		var color = "#" + red + green + blue;
+
+		$('#displayBox').css("background-color", color);
 	},
 
 	conectarDispositivo: function(){
