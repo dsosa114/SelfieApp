@@ -73,6 +73,17 @@ var nb = {
         );
     },
 
+    btWrite: function(data){
+        bluetoothSerial.write(data, 
+            function() {
+                alert("Datos enviados con exito");
+            },
+            function() {
+                alert("Error al enviar los datos");
+            }
+        );
+    },
+
     btDisconnect: function(){
         bluetoothSerial.disconnect(
             function() {

@@ -130,6 +130,11 @@ var fn = {
 
 	tomarFoto: function(){
 		//alert("Abriendo camara");
+		if($("#home").attr("connected") == "false"){
+			nb.btWrite("Hola mundo...");
+		}else if($("#home").attr("connected") == "true"){
+			alert("No hay dispositivos conectados")
+		}
 		mc.abrirCamara();
 	}
 
