@@ -41,21 +41,18 @@ var fn = {
 			fn.isConnected();   
     		if($("#home").attr("connected") == undefined || $("#home").attr("connected") == "false"){
 				$("#home div[data-role=footer]").empty();
-				$("#home div[data-role=footer]").append('<a data-role="button" class="ui-btn-active" data-icon="check">Conectar</a>');
+				$("#home div[data-role=footer]").append('<a href="#connectDialog" data-rel="dialog" data-role="button" class="ui-btn-active" data-icon="check">Conectar</a>');
 				$('#home div[data-role=footer] [data-role="button"]').button(); 
-				$("#home div[data-role=footer] a").on("tap", fn.conectarDispositivo);
 			}else if($("#home").attr("connected") == "true"){
 				$("#home div[data-role=footer]").empty();
-				$("#home div[data-role=footer]").append('<a data-role="button" class="ui-btn-active" data-icon="delete">Desconectar</a>');
+				$("#home div[data-role=footer]").append('<a href="#connectDialog" data-rel="dialog" data-role="button" class="ui-btn-active" data-icon="delete">Desconectar</a>');
 				$('#home div[data-role=footer] [data-role="button"]').button(); 
-				$("#home div[data-role=footer] a").on("tap", fn.conectarDispositivo);
 			}
 		});
 
 		$("#foto").tap(fn.tomarFoto);
 		$("#devices div[data-role=header] a").tap(fn.buscarDispositivos);
 		$("#disConBtn").tap(fn.conectarDesconectar);
-		$("#home div[data-role=footer] a").on("tap", fn.conectarDispositivo);
 		$(".slider-rgb").on("slidestop", fn.cambioColor);
 		$("#displayBox").on("tap", function(){alert("Color = " + $(this).css("background-color"));});
 
@@ -73,22 +70,14 @@ var fn = {
 		$('#displayBox').css("background-color", color);
 	},
 
-	conectarDispositivo: function(){
-		if($("#home").attr("addr") == undefined){
+	conectarDesconectar: function(){
+		var address = $("#home").attr("addr");
+		//$("#connectDialog").popup("close");
+		if(address == undefined){
 			//alert("moving to devices");
 			//$("#home div[data-role=footer]").html('<a href="#" data-role="button" class="ui-btn-active" data-icon="check">Conectado</a>');
 			window.location.href = "#devices"; //window: pantalla del navegador
-		}else{
-			$("#connectDialog").popup("open");
-		}
-
-	},
-
-	conectarDesconectar: function(){
-		var address = $("#home").attr("addr");
-		$("#connectDialog").popup("close");
-
-		if($("#home").attr("connected") == "false"){
+		}else if($("#home").attr("connected") == "false"){
 			alert("Conectando..." + address);
 			nb.btConnect(address);
 		}else if($("#home").attr("connected") == "true"){

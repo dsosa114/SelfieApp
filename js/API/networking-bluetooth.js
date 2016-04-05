@@ -17,6 +17,7 @@ var nb = {
 	},
 
     btSearching: function(){
+
         bluetoothSerial.list(
             function(devices) {
                 devices.forEach(function(device) {
@@ -35,6 +36,11 @@ var nb = {
                 })
                 $("#unpaired a").on("tap", fn.doThisOnTap);
                 $("#popSearch").popup("close");
+            }
+        );
+
+        bluetoothSerial.setDeviceDiscoveredListener(
+            function(device) {
                 alert("Enlistados todos los dispositivos encontrados");
             }
         );
