@@ -57,8 +57,10 @@ var nb = {
 	},
 
     btConnect: function(address){
+        $.mobile.loading( 'show', {theme: 'd', text: "Espere, conectando...", textVisible: true, textonly: true});
         bluetoothSerial.connect(address, 
             function() {
+                $.mobile.loading( 'hide');
                 alert("Conexión exitosa");
                 $("#home").attr("addr", address);
                 $("#home").attr("connected","true");
@@ -68,6 +70,7 @@ var nb = {
                 window.location.href = "#home"; 
             },
             function() {
+                $.mobile.loading( 'hide');
                 alert("Problemas de conexión");
                 window.location.href = "#home"; 
             }
