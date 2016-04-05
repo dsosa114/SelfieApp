@@ -17,7 +17,7 @@ var nb = {
 	},
 
     btSearching: function(){
-        $.mobile.loading( 'show', { theme: "a", text: "Buscando dispositivos. Espere...", textonly: false});
+        $.mobile.loading( 'show', {text: "Buscando dispositivos. Espere...", textVisible: true, textonly: false});
         bluetoothSerial.list(
             function(devices) {
                 devices.forEach(function(device) {

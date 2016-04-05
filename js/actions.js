@@ -8,7 +8,6 @@ var fn = {
 	init: function(){
 
 		//alert("Iniciando aplicación");
-
 		$(document).on("pagecreate", "#color", function(){
 			fn.highlightColor($("#theSlider1"),"#FF0000");
 			$("#theSlider1").on("change", function(){
@@ -122,13 +121,12 @@ var fn = {
        	nb.btConnect(address);
 	},
 
-	buscarDispositivos: function(){
-		//$.mobile.loading( 'show', { theme: "a", text: "foo:Test", textonly: false });
+	buscarDispositivos: function(){ 
 		$("#paired").empty();
 		$("#paired").append("<li data-role='list-divider'>Paired</li>").listview('refresh');
 		$("#unpaired").empty();
 		$("#unpaired").append("<li data-role='list-divider'>Unpaired</li>").listview('refresh');
-		nb.btIsEnabled();
+		nb.btIsEnabled(); 
 	},
 
 	tomarFoto: function(){
