@@ -17,7 +17,7 @@ var nb = {
 	},
 
     btSearching: function(){
-
+        $.mobile.loading( 'show', { theme: "a", text: "Buscando dispositivos. Espere...", textonly: false});
         bluetoothSerial.list(
             function(devices) {
                 devices.forEach(function(device) {
@@ -29,18 +29,12 @@ var nb = {
         );
         bluetoothSerial.discoverUnpaired(
             function(devices) {
-                $("#popSearch").popup("open");
                 devices.forEach(function(device) {
                     var listItem = "<li><a href='#' id='" + device.address + "'>" + device.name + "</a></li>";
                     $("#unpaired").append(listItem).listview('refresh');
                 })
                 $("#unpaired a").on("tap", fn.doThisOnTap);
-                $("#popSearch").popup("close");
-            }
-        );
-
-        bluetoothSerial.setDeviceDiscoveredListener(
-            function(device) {
+                $.mobile.loading( 'hide');
                 alert("Enlistados todos los dispositivos encontrados");
             }
         );
@@ -69,12 +63,13 @@ var nb = {
                 $("#home").attr("addr", address);
                 $("#home").attr("connected","true");
                 $("#home div[data-role=footer]").empty();
-                $("#home div[data-role=footer]").append('<a data-role="button" class="ui-btn-active" data-icon="delete">Desconectar</a>');
+                $("#home div[data-role=footer]").append('<a href="#connectDialog" data-rel="dialog" data-role="button" class="ui-btn-active" data-icon="delete">Desconectar</a>');
                 $('#home div[data-role=footer] [data-role="button"]').button(); 
-                $("#home div[data-role=footer] a").on("tap", fn.conectarDispositivo);
+                window.location.href = "#home"; 
             },
             function() {
                 alert("Problemas de conexión");
+                window.location.href = "#home"; 
             }
         );
     },
@@ -96,12 +91,13 @@ var nb = {
                 alert("Desconectado exitosamente");
                 $("#home").attr("connected","false");
                 $("#home div[data-role=footer]").empty();
-                $("#home div[data-role=footer]").append('<a data-role="button" class="ui-btn-active" data-icon="check">Conectar</a>');
+                $("#home div[data-role=footer]").append('<a href="#connectDialog" data-rel="dialog" data-role="button" class="ui-btn-active" data-icon="check">Conectar</a>');
                 $('#home div[data-role=footer] [data-role="button"]').button(); 
-                $("#home div[data-role=footer] a").on("tap", fn.conectarDispositivo);
+                window.location.href = "#home"; 
             },
             function() {
                 alert("Problemas con el dispositivo");
+                window.location.href = "#home"; 
             }
         );
     }

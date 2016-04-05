@@ -58,7 +58,8 @@
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#" data-rel="back">Cancelar</a></li>
-					<li><a href="#home" class="ui-btn-active">Ok</a></li>
+					<li><a href="#" id="testColor" class="ui-btn-active">Test</a></li>
+					<li><a href="#home">Ok</a></li>
 				</ul>
 			</div>
 		</div>
@@ -69,9 +70,6 @@
 			<a href="#" class="ui-btn-active">Buscar</a>
 		</div>
 		<div class="ui-content">
-			<div id="popSearch" data-role="popup" data-theme="a" data-overlay-theme="a" class="ui-content">
-  				<p>Buscando...<p>
-			</div>
 			<!--<h3>Paired</h3>-->
 			<ul id="paired" data-role="listview" data-inset="true">	
 				<li data-role="list-divider">Paired</li>
@@ -87,6 +85,19 @@
 				<ul>
 					<li><a href="#" data-rel="back">Cancelar</a></li>
 					<li><a href="#home" class="ui-btn-active">Listo</a></li>-->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="searchDialog" data-role="page" data-close-btn="none">
+  		<div data-role="header">
+			<h1>Buscando...</h1>
+		</div>
+		<div class="ui-content">
+			<p>Buscando dispositivos. Espere...</p>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#" data-rel="back">Cancelar</a></li>
 				</ul>
 			</div>
 		</div>

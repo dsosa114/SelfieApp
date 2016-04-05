@@ -55,6 +55,7 @@ var fn = {
 		$("#disConBtn").tap(fn.conectarDesconectar);
 		$(".slider-rgb").on("slidestop", fn.cambioColor);
 		$("#displayBox").on("tap", function(){alert("Color = " + $(this).css("background-color"));});
+		$("#testColor").tap(fn.enviarDatos);
 
 		fn.ponerFecha();
 		
@@ -122,6 +123,7 @@ var fn = {
 	},
 
 	buscarDispositivos: function(){
+		//$.mobile.loading( 'show', { theme: "a", text: "foo:Test", textonly: false });
 		$("#paired").empty();
 		$("#paired").append("<li data-role='list-divider'>Paired</li>").listview('refresh');
 		$("#unpaired").empty();
@@ -131,12 +133,16 @@ var fn = {
 
 	tomarFoto: function(){
 		//alert("Abriendo camara");
+		fn.enviarDatos();
+		mc.abrirCamara();
+	},
+
+	enviarDatos: function(){
 		if($("#home").attr("connected") == "true"){
 			nb.btWrite("Color = " + $("#displayBox").css("background-color"));
 		}else if($("#home").attr("connected") == "false"){
 			alert("No hay dispositivos conectados")
 		}
-		mc.abrirCamara();
 	}
 
 };
